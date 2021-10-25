@@ -1,6 +1,70 @@
+#![allow(unused)]
 use phf::phf_map;
 
-pub static ERRORS: phf::Map<&'static str, &'static str> = phf_map! {
+pub static ANCHOR_PROGRAM: phf::Map<&'static str, &'static str> = phf_map! {
+    // Instructions.
+    "64" => "InstructionMissing: 8 byte instruction identifier not provided",
+    "65" =>"InstructionFallbackNotFound: Fallback functions are not supported",
+    "66" => "InstructionDidNotDeserialize: The program could not deserialize the given instruction",
+    "67" => "InstructionDidNotSerialize: The program could not serialize the given instruction",
+    // IDL instructions.
+    "78" => "IdlInstructionStub: The program was compiled without idl instructions",
+    "79"=> "IdlInstructionInvalidProgram: Invalid program given to the IDL instruction",
+    // Constraints.
+    "8C" =>"ConstraintMut: A mut constraint was violated",
+    "8D" => "ConstraintHasOne: A has one constraint was violated",
+    "8E" => "ConstraintSigner: A signer constraint as violated",
+    "8F" => "ConstraintRaw: A raw constraint was violated",
+    "90" => "ConstraintOwner: An owner constraint was violated",
+    "91" => "ConstraintRentExempt: A rent exemption constraint was violated",
+    "92" => "ConstraintSeeds: A seeds constraint was violated",
+    "93" => "ConstraintExecutable: An executable constraint was violated",
+    "94" => "ConstraintState: A state constraint was violated",
+    "95" => "ConstraintAssociated: An associated constraint was violated",
+    "96" => "ConstraintAssociatedInit: An associated init constraint was violated",
+    "97" => "ConstraintClose: A close constraint was violated",
+    "98" => "ConstraintAddress: An address constraint was violated",
+    "99" => "ConstraintZero: Expected zero account discriminant",
+    // Accounts.
+    "A0" => "AccountDiscriminatorAlreadySet: The account discriminator was already set on this account",
+    "A1" => "AccountDiscriminatorNotFound: No 8 byte discriminator was found on the account",
+    "A2" => "AccountDiscriminatorMismatch: 8 byte discriminator did not match what was expected",
+    "A3" => "AccountDidNotDeserialize: Failed to deserialize the account",
+    "A4" => "AccountDidNotSerialize: Failed to serialize the account",
+    "A5" => "AccountNotEnoughKeys: Not enough account keys given to the instruction",
+    "A6" => "AccountNotMutable: The given account is not mutable",
+    "A7" => "AccountNotProgramOwned: The given account is not owned by the executing program",
+    "A8" => "InvalidProgramId: Program ID was not as expected",
+    "A9" => "InvalidProgramExecutable: Program account is not executable",
+    "AA" => "AccountNotSigner: The given account did not sign",
+    // State.
+    "B4" => "StateInvalidAddress: The given state account does not have the correct address",
+    // Used for APIs that shouldn't be used anymore.
+    "12B" => "Deprecated: The API being used is deprecated and should no longer be used",
+};
+
+pub static FAIR_LAUNCH: phf::Map<&'static str, &'static str> = phf_map! {};
+
+pub static METAPLEX: phf::Map<&'static str, &'static str> = phf_map! {};
+
+pub static NFT_CANDY_MACHINE: phf::Map<&'static str, &'static str> = phf_map! {
+      "12C" => "IncorrectOwner: Account does not have correct owner!",
+    "12D" => "Uninitialized: Account is not initialized!",
+    "12E" => "MintMismatch: Mint Mismatch!",
+    "12F" => "IndexGreaterThanLength: Index greater than length!",
+    "130" => "ConfigMustHaveAtleastOneEntry: Config must have atleast one entry!",
+    "131" => "NumericalOverflowError: Numerical overflow error!",
+    "132" => "TooManyCreators: Can only provide up to 4 creators to candy machine (because candy machine is one)!",
+    "133" => "UuidMustBeExactly6Length: Uuid must be exactly of 6 length",
+    "134" => "NotEnoughTokens: Not enough tokens to pay for this minting",
+    "135" => "NotEnoughSOL: Not enough SOL to pay for this minting",
+    "136" => "TokenTransferFailed: Token transfer failed",
+    "137" => "CandyMachineEmpty: Candy machine is empty!",
+    "138" => "CandyMachineNotLiveYet: Candy machine is not live yet!",
+    "139" => "ConfigLineMismatch: Number of config lines must be at least number of items available",
+};
+
+pub static TOKEN_METADATA: phf::Map<&'static str, &'static str> = phf_map! {
     "0" => "InstructionUnpackError: Failed to unpack instruction data",
     "1" => "InstructionPackError: Failed to pack instruction data",
     "2" => "NotRentExempt: Lamport balance below rent-exempt threshold",
@@ -74,18 +138,7 @@ pub static ERRORS: phf::Map<&'static str, &'static str> = phf_map! {
     "46" => "OneTimeAuthMintSupplyMustBeZeroForConversion: One Time Auth mint supply must be zero for conversion",
     "47" => "InvalidEditionIndex: You tried to insert one edition too many into an edition mark pda",
     "48" => "ReservationArrayShouldBeSizeOne: In the legacy system the reservation needs to be of size one for cpu limit reasons",
-    "12C" => "IncorrectOwner: Account does not have correct owner!",
-    "12D" => "Uninitialized: Account is not initialized!",
-    "12E" => "MintMismatch: Mint Mismatch!",
-    "12F" => "IndexGreaterThanLength: Index greater than length!",
-    "130" => "ConfigMustHaveAtleastOneEntry: Config must have atleast one entry!",
-    "131" => "NumericalOverflowError: Numerical overflow error!",
-    "132" => "TooManyCreators: Can only provide up to 4 creators to candy machine (because candy machine is one)!",
-    "133" => "UuidMustBeExactly6Length: Uuid must be exactly of 6 length",
-    "134" => "NotEnoughTokens: Not enough tokens to pay for this minting",
-    "135" => "NotEnoughSOL: Not enough SOL to pay for this minting",
-    "136" => "TokenTransferFailed: Token transfer failed",
-    "137" => "CandyMachineEmpty: Candy machine is empty!",
-    "138" => "CandyMachineNotLiveYet: Candy machine is not live yet!",
-    "139" => "ConfigLineMismatch: Number of config lines must be at least number of items available",
+    "66" => "FakeError: Fake error message",
 };
+
+pub static TOKEN_VAULT: phf::Map<&'static str, &'static str> = phf_map! {};

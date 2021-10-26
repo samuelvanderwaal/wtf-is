@@ -138,7 +138,6 @@ pub static TOKEN_METADATA: phf::Map<&'static str, &'static str> = phf_map! {
     "46" => "OneTimeAuthMintSupplyMustBeZeroForConversion: One Time Auth mint supply must be zero for conversion",
     "47" => "InvalidEditionIndex: You tried to insert one edition too many into an edition mark pda",
     "48" => "ReservationArrayShouldBeSizeOne: In the legacy system the reservation needs to be of size one for cpu limit reasons",
-    "66" => "FakeError: Fake error message",
 };
 
 pub static TOKEN_VAULT: phf::Map<&'static str, &'static str> = phf_map! {};

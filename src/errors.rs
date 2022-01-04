@@ -48,7 +48,7 @@ pub static FAIR_LAUNCH: phf::Map<&'static str, &'static str> = phf_map! {};
 pub static METAPLEX: phf::Map<&'static str, &'static str> = phf_map! {};
 
 pub static NFT_CANDY_MACHINE: phf::Map<&'static str, &'static str> = phf_map! {
-      "12C" => "IncorrectOwner: Account does not have correct owner!",
+    "12C" => "IncorrectOwner: Account does not have correct owner!",
     "12D" => "Uninitialized: Account is not initialized!",
     "12E" => "MintMismatch: Mint Mismatch!",
     "12F" => "IndexGreaterThanLength: Index greater than length!",
@@ -62,6 +62,35 @@ pub static NFT_CANDY_MACHINE: phf::Map<&'static str, &'static str> = phf_map! {
     "137" => "CandyMachineEmpty: Candy machine is empty!",
     "138" => "CandyMachineNotLiveYet: Candy machine is not live yet!",
     "139" => "ConfigLineMismatch: Number of config lines must be at least number of items available",
+};
+
+pub static NFT_CANDY_MACHINE_V2: phf::Map<&'static str, &'static str> = phf_map! {
+
+"12C"    => "IncorrectOwner: Account does not have correct owner!",
+"12D"    => "Uninitialized: Account is not initialized!",
+"12E"    => "MintMismatch: Mint Mismatch!",
+"12F"    => "IndexGreaterThanLength: Index greater than length!",
+"130"    => "NumericalOverflowError: Numerical overflow error!",
+"131"    => "TooManyCreators: Can only provide up to 4 creators to candy machine (because candy machine is one)!",
+"132"    => "UuidMustBeExactly6Length: Uuid must be exactly of 6 length",
+"133"    => "NotEnoughTokens: Not enough tokens to pay for this minting",
+"134"    => "NotEnoughSOL: Not enough SOL to pay for this minting",
+"135"    => "TokenTransferFailed: Token transfer failed",
+"136"    => "CandyMachineEmpty: Candy machine is empty!",
+"137"    => "CandyMachineNotLive: Candy machine is not live!",
+"138"    => "HiddenSettingsConfigsDoNotHaveConfigLines: Configs that are using hidden uris do not have config lines, they have a single hash representing hashed order",
+"139"    => "CannotChangeNumberOfLines: Cannot change number of lines unless is a hidden config",
+"13A"    => "DerivedKeyInvalid: Derived key invalid",
+"13B"    => "PublicKeyMismatch: Public key mismatch",
+"13C"    => "NoWhitelistToken: No whitelist token present",
+"13D"    => "TokenBurnFailed: Token burn failed",
+"13E"    => "GatewayAppMissing: Missing gateway app when required",
+"13F"    => "GatewayTokenMissing: Missing gateway token when required",
+"140"    => "GatewayTokenExpireTimeInvalid: Invalid gateway token expire time",
+"141"    => "NetworkExpireFeatureMissing: Missing gateway network expire feature when required",
+"142"    => "CannotFindUsableConfigLine: Unable to find an unused config line near your random number index",
+"143"    => "InvalidString: Invalid string",
+"144"    => "SuspiciousTransaction: Suspicious transaction detected",
 };
 
 pub static TOKEN_METADATA: phf::Map<&'static str, &'static str> = phf_map! {

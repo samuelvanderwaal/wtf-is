@@ -170,7 +170,7 @@ checksum = "fd6fbd9a79829dd1ad0cc20627bf1ed606756a7f77edff7b66b7064f9cb327c6"
 
 [[package]]
 name = "wtf-is"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "phf",
 ]

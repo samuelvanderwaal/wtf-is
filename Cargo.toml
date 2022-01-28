@@ -2,8 +2,9 @@
 name = "wtf-is"
 version = "0.2.4"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+description = "I was tired of looking up Metaplex program errors."
+repository = "https://github.com/samuelvanderwaal/wtf-is"
 
 [dependencies]
 phf = { version = "0.10", features = ["macros"] }

@@ -8,7 +8,7 @@ pub struct FoundError {
 }
 
 fn main() {
-    let hex_code = args().skip(1).next();
+    let hex_code = args().nth(1);
 
     match hex_code {
         Some(code) => {
@@ -34,44 +34,39 @@ fn main() {
 pub fn find_errors(hex_code: &str) -> Vec<FoundError> {
     let mut found_errors: Vec<FoundError> = Vec::new();
 
-    match errors::ANCHOR_PROGRAM.get(hex_code).cloned() {
-        Some(e) => found_errors.push(FoundError {
+    if let Some(e) = errors::ANCHOR_PROGRAM.get(hex_code).cloned() {
+        found_errors.push(FoundError {
             domain: "Anchor Program".to_string(),
             message: e.to_string(),
-        }),
-        None => (),
+        });
     }
 
-    match errors::AUCTION_HOUSE.get(hex_code).cloned() {
-        Some(e) => found_errors.push(FoundError {
+    if let Some(e) = errors::AUCTION_HOUSE.get(hex_code).cloned() {
+        found_errors.push(FoundError {
             domain: "Auction House".to_string(),
             message: e.to_string(),
-        }),
-        None => (),
+        });
     }
 
-    match errors::NFT_CANDY_MACHINE.get(hex_code).cloned() {
-        Some(e) => found_errors.push(FoundError {
+    if let Some(e) = errors::NFT_CANDY_MACHINE.get(hex_code).cloned() {
+        found_errors.push(FoundError {
             domain: "NFT Candy Machine V1".to_string(),
             message: e.to_string(),
-        }),
-        None => (),
+        });
     }
 
-    match errors::NFT_CANDY_MACHINE_V2.get(hex_code).cloned() {
-        Some(e) => found_errors.push(FoundError {
+    if let Some(e) = errors::NFT_CANDY_MACHINE_V2.get(hex_code).cloned() {
+        found_errors.push(FoundError {
             domain: "NFT Candy Machine V2".to_string(),
             message: e.to_string(),
-        }),
-        None => (),
+        });
     }
 
-    match errors::TOKEN_METADATA.get(hex_code).cloned() {
-        Some(e) => found_errors.push(FoundError {
+    if let Some(e) = errors::TOKEN_METADATA.get(hex_code).cloned() {
+        found_errors.push(FoundError {
             domain: "Token Metadata".to_string(),
             message: e.to_string(),
-        }),
-        None => (),
+        });
     }
 
     found_errors

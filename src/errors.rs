@@ -57,6 +57,37 @@ pub static ANCHOR_PROGRAM: phf::Map<&'static str, &'static str> = phf_map! {
     "1388" => "Deprecated: The API being used is deprecated and should no longer be used",
 };
 
+pub static AUCTION_HOUSE: phf::Map<&'static str, &'static str> = phf_map! {
+    "1770" => "PublicKeyMismatch: Public key mismatch",
+    "1771" => "InvalidMintAuthority: Invalid mint authority",
+    "1772" => "UnitializedAccount: Account is not initialized",
+    "1773" => "IncorrectOwner: Incorrect owner",
+    "1774" => "PublicKeysShouldBeUnique: Public keys should be unique",
+    "1775" => "StatementFalse: Statement is false",
+    "1776" => "NotRentExempt: Account is not rent exempt",
+    "1777" => "NumericalOverflow: Numerical overflow",
+    "1778" => "ExpectedSolAccount: Expected a sol account but got an SPL token account instead",
+    "1779" => "CannotExchangeSOLForSol: Cannot exchange SOL for SOL",
+    "177a" => "SOLWalletMustSIgn: If paying with sol, sol wallet must be signer",
+    "177b" => "CannotTakeThisActionWithoutAuctionHouseSignOff: Cannot take this action without auction house signing too",
+    "177c" => "NoPayerPresent: No payer present on this transaction",
+    "177d" => "DerivedKeyInvalid: Derived key is invalid",
+    "177e" => "MetadataDoesntExist: Metadata does not exist",
+    "177f" => "InvalidTokenAmount: Invalid token amount",
+    "1780" => "BothPartiesNeedToAgreeToSale: Both parties need to agree to the sale",
+    "1781" => "CannotMatchFreeSalesWithoutAuctionHouseOrSellerSignoff: Cannot match free sales unless the auction house or seller signs off",
+    "1782" => "SaleRequiresSigner: This sale requires a signer",
+    "1783" => "OldSellerNotInitialized: Old seller not initialized",
+    "1784" => "SellerATACannotHaveDelegate: Seller ata cannot have a delegate set",
+    "1785" => "BuyerATACannotHaveDelegate: Buyer ATA cannot have a delegate set",
+    "1786" => "NoValidSignerPresent: No valid signer present",
+    "1787" => "InvalidBasisPoints: Basis points must be less than or equal to 10000",
+    "1788" => "TradeStateDoesntExist: The trade state account does not exist",
+    "1789" => "TradeStateIsNotEmpty: The trade state is not empty",
+    "178a" => "ReceiptIsEmpty: The receipt is empty",
+    "178b" => "InstructionMismatch: The instruction does not match",
+};
+
 pub static FAIR_LAUNCH: phf::Map<&'static str, &'static str> = phf_map! {};
 
 pub static METAPLEX: phf::Map<&'static str, &'static str> = phf_map! {};

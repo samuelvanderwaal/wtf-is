@@ -42,6 +42,14 @@ pub fn find_errors(hex_code: &str) -> Vec<FoundError> {
         None => (),
     }
 
+    match errors::AUCTION_HOUSE.get(hex_code).cloned() {
+        Some(e) => found_errors.push(FoundError {
+            domain: "Auction House".to_string(),
+            message: e.to_string(),
+        }),
+        None => (),
+    }
+
     match errors::NFT_CANDY_MACHINE.get(hex_code).cloned() {
         Some(e) => found_errors.push(FoundError {
             domain: "NFT Candy Machine V1".to_string(),

@@ -10,18 +10,32 @@ pub struct FoundError {
 }
 
 fn main() {
-    let error_code = args().nth(1).unwrap();
+    let error_code = match args().nth(1) {
+        Some(code) => code,
+        None => {
+            println!("Usage: {} <error code>", args().next().unwrap());
+            std::process::exit(1);
+        }
+    };
 
     let parsed_error_code = if error_code.contains("0x") {
         error_code.replace("0x", "")
     } else {
-        format!("{:X}", error_code.parse::<i64>().unwrap())
+        let parsed_code = match error_code.parse::<i64>() {
+            Ok(code) => code,
+            Err(_) => {
+                println!("Error: {error_code} is not a valid error code");
+                std::process::exit(1);
+            }
+        };
+
+        format!("{:X}", parsed_code)
     };
 
     let errors = find_errors(&parsed_error_code);
 
     if errors.is_empty() {
-        println!("No errors for found code: {parsed_error_code}");
+        println!("No errors for found code: 0x{parsed_error_code}");
         std::process::exit(1);
     }
 

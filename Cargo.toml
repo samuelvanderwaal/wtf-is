@@ -1,6 +1,6 @@
 [package]
 name = "wtf-is"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
 license = "MIT"
 description = "I was tired of looking up Metaplex program errors."

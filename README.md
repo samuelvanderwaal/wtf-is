@@ -20,3 +20,6 @@ $ wtf-is 55
         Token Metadata            |     CannotUnverifyAnotherCreator: You cannot unilaterally unverify another creator
 ```
 
+## Update
+
+[Metaboss](https://github.com/samuelvanderwaal/metaboss) now supports looking up errors with `metaboss find error <code>`. Error lists in Metaboss will be kept up-to-date and this repo will be deprecated eventually.
